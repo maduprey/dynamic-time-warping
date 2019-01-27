@@ -1,23 +1,11 @@
-# Dynamic time warping algorithm and calculation of optimal warp path
-
-# Author: Michael Duprey
-# Date: June 9, 2018
-
-# Allows for comparison of two time series based on optimally time-shifted distance.
-
-# Implementation based largely on Senin (2008):
-# Senin, Pavel. "Dynamic time warping algorithm review."
-# Information and Computer Science Department University of Hawaii at Manoa Honolulu, USA (2008).
-# http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.465.4905&rep=rep1&type=pdf
-
 library(plotly)
 library(purrr)
 source("./dtwCostMatrices.R")
 source("./optimalWarpPath.R")
 
+# Generate two time series
 s <- sin(1:12)
 t <- cos(1:12)
-
 plot(s, type = "b", xlab = "Time", ylab = "Value", main = "s-sequence", xlim = c(0, 12), ylim = c(-5, 5))
 plot(t, type = "b", xlab = "Time", ylab = "Value", main = "t-sequence", xlim = c(0, 12), ylim = c(-5, 5))
 

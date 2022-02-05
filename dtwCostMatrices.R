@@ -32,12 +32,15 @@ dtwCostMatrices <- function(s, t) {
     for(j in 2:n) {
       cost <- d(s[i], t[j])
       
-      acc.cost.m[i, j] <- cost + min(acc.cost.m[i - 1, j], acc.cost.m[i, j - 1], acc.cost.m[i - 1, j - 1])
+      acc.cost.m[i, j] <- cost + min(acc.cost.m[i - 1, j], 
+                                     acc.cost.m[i, j - 1], 
+                                     acc.cost.m[i - 1, j - 1])
       local.cost.m[i, j] <- cost
     }
   }
   
-  # Trim initial boundary distance and extract the minimal distance between s- and t-sequences
+  # Trim initial boundary distance and extract the minimal distance between 
+  # s- and t-sequences
   dtw <- list("acc.cost.m" = acc.cost.m[2:m, 2:n], 
               "local.cost.m" = local.cost.m[2:m, 2:n], 
               "min.dist" = acc.cost.m[m, n])

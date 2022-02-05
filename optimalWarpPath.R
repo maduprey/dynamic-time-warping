@@ -1,5 +1,5 @@
 optimalWarpPath <- function(acc.cost.m) {
-  # Compute the optimal warp path over an accumulated cost matrx
+  # Compute the optimal warp path over an accumulated cost matrix
   
   i <- nrow(acc.cost.m)
   j <- ncol(acc.cost.m)
@@ -13,9 +13,13 @@ optimalWarpPath <- function(acc.cost.m) {
     } else if(j == 2) {
       i <- i - 1
     } else {
-      if(acc.cost.m[i - 1, j] == min(acc.cost.m[i - 1, j], acc.cost.m[i, j - 1], acc.cost.m[i - 1, j - 1])) {
+      if(acc.cost.m[i - 1, j] == min(acc.cost.m[i - 1, j], 
+                                     acc.cost.m[i, j - 1], 
+                                     acc.cost.m[i - 1, j - 1])) {
         i <- i - 1
-      } else if(acc.cost.m[i, j - 1] == min(acc.cost.m[i - 1, j], acc.cost.m[i, j - 1], acc.cost.m[i - 1, j - 1])) {
+      } else if(acc.cost.m[i, j - 1] == min(acc.cost.m[i - 1, j], 
+                                            acc.cost.m[i, j - 1], 
+                                            acc.cost.m[i - 1, j - 1])) {
         j <- j - 1
       } else {
         i <- i - 1
